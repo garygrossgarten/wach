@@ -14,7 +14,7 @@ Use it instead of running tools that require a Kernel Extension.
 ## Installation
 
 ```sh
-npm install @garygrossgarten/wach
+npm install -g @garygrossgarten/wach
 ```
 
 ## Usage example
