@@ -1,4 +1,4 @@
-# Wach
+# wach
 > prevent your mac from going to sleep when closing the lid. 👀.
 
 [![npm version](https://badge.fury.io/js/%40garygrossgarten%2Fwach.svg)](https://badge.fury.io/js/%40garygrossgarten%2Fwach)
