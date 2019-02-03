@@ -34,8 +34,8 @@
         "typescript-ioc": "^1.2.4"
     },
     "dependencies": {
-        "@fivethree/billy-core": "0.6.4",
-        "@fivethree/billy-plugin-core": "0.6.4"
+        "@fivethree/billy-core": "0.7.0",
+        "@fivethree/billy-plugin-core": "0.7.0"
     },
     "billy": {
         "plugins": [
