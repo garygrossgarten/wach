@@ -29,7 +29,7 @@ If you want to <b>disable</b> sleep prevention again 🛏
 wach disable
 ```
 
-To get a report of all the current Power Management settings
+To get a report of all the current Power Management settings 🔋
 ```sh
 wach report
 ```
