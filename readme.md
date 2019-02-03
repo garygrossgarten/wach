@@ -20,7 +20,7 @@ npm install -g @garygrossgarten/wach
 ```
 
 ## Usage example
-Enable sleep prevention ☕
+<b>Enable</b> sleep prevention ☕
 ```sh
 wach enable
 ```
