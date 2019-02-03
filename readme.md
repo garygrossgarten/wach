@@ -3,6 +3,7 @@
 
 [![npm version](https://badge.fury.io/js/%40garygrossgarten%2Fwach.svg)](https://badge.fury.io/js/%40garygrossgarten%2Fwach)
 ![](https://img.shields.io/david/garygrossgarten/wach.svg?style=flat)
+![](https://img.shields.io/npm/l/@garygrossgarten/wach.svg?style=flat)
 
 This is a simple cli tool to prevent your MacBook from going to sleep when closing the lid. 
 Use it instead of running tools that require a Kernel Extension. 
