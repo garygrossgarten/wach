@@ -25,7 +25,8 @@ export class Wach extends Application {
         const enabled = await this.isEnabled();
         if (enabled) {
             const status = await this.parseJSON(context.app.appDir + '/config.json');
-            await this.exec('sudo pmset -a sleep 1');
+            const sleep = status.sleep | 1;
+            await this.exec('sudo pmset -a sleep ' + sleep);
             const hibernate = status.hibernatemode | 3;
             await this.exec('sudo pmset -a hibernatemode ' + hibernate);
             await this.exec('sudo pmset -a disablesleep 0');
