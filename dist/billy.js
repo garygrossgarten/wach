@@ -25,7 +25,7 @@ let Wach = class Wach extends application_1.Application {
             const enabled = yield this.isEnabled();
             if (!enabled) {
                 const status = yield this.getStatus();
-                yield this.writeJSON(context.app.appDir + '/config.json', status);
+                yield this.writeJSON(context.directory + '/config.json', status);
                 yield this.exec('sudo pmset -a sleep 0');
                 yield this.exec('sudo pmset -a hibernatemode 0');
                 yield this.exec('sudo pmset -a disablesleep 1');
@@ -40,7 +40,7 @@ let Wach = class Wach extends application_1.Application {
         return __awaiter(this, void 0, void 0, function* () {
             const enabled = yield this.isEnabled();
             if (enabled) {
-                const status = yield this.parseJSON(context.app.appDir + '/config.json');
+                const status = yield this.parseJSON(context.directory + '/config.json');
                 yield this.exec('sudo pmset -a sleep 1');
                 const hibernate = status.hibernatemode | 3;
                 yield this.exec('sudo pmset -a hibernatemode ' + hibernate);

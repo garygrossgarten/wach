@@ -1,15 +1,15 @@
-import { App, Lane, LaneContext } from "@fivethree/billy-core";
+import { App, Lane, LaneContext, context } from "@fivethree/billy-core";
 import { Application } from "./generated/application";
 
 @App()
 export class Wach extends Application {
 
     @Lane('prevent your mac from going to sleep! ☕')
-    async enable(context: LaneContext) {
+    async enable(@context() context: LaneContext) {
         const enabled = await this.isEnabled();
         if (!enabled) {
             const status = await this.getStatus();
-            await this.writeJSON(context.app.appDir + '/config.json', status);
+            await this.writeJSON(context.directory + '/config.json', status);
             await this.exec('sudo pmset -a sleep 0');
             await this.exec('sudo pmset -a hibernatemode 0');
             await this.exec('sudo pmset -a disablesleep 1');
@@ -21,10 +21,10 @@ export class Wach extends Application {
     }
 
     @Lane('disable sleep prevention!💤')
-    async disable(context: LaneContext) {
+    async disable(@context() context: LaneContext) {
         const enabled = await this.isEnabled();
         if (enabled) {
-            const status = await this.parseJSON(context.app.appDir + '/config.json');
+            const status = await this.parseJSON(context.directory + '/config.json');
             await this.exec('sudo pmset -a sleep 1');
             const hibernate = status.hibernatemode | 3;
             await this.exec('sudo pmset -a hibernatemode ' + hibernate);
