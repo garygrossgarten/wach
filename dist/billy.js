@@ -8,6 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
@@ -41,7 +44,8 @@ let Wach = class Wach extends application_1.Application {
             const enabled = yield this.isEnabled();
             if (enabled) {
                 const status = yield this.parseJSON(context.directory + '/config.json');
-                yield this.exec('sudo pmset -a sleep 1');
+                const sleep = status.sleep | 1;
+                yield this.exec('sudo pmset -a sleep ' + sleep);
                 const hibernate = status.hibernatemode | 3;
                 yield this.exec('sudo pmset -a hibernatemode ' + hibernate);
                 yield this.exec('sudo pmset -a disablesleep 0');
@@ -84,12 +88,14 @@ let Wach = class Wach extends application_1.Application {
 };
 __decorate([
     billy_core_1.Lane('prevent your mac from going to sleep! ☕'),
+    __param(0, billy_core_1.context()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], Wach.prototype, "enable", null);
 __decorate([
     billy_core_1.Lane('disable sleep prevention!💤'),
+    __param(0, billy_core_1.context()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
