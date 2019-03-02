@@ -1,11 +1,11 @@
-import { App, Lane, LaneContext, context } from "@fivethree/billy-core";
-import { Application } from "./generated/application";
+import { App, Lane, Context, context } from "@fivethree/billy-core";
+import { Plugins } from "./plugins";
 
 @App()
-export class Wach extends Application {
+export class Wach extends Plugins {
 
     @Lane('prevent your mac from going to sleep! ☕')
-    async enable(@context() context: LaneContext) {
+    async enable(@context() context: Context) {
         const enabled = await this.isEnabled();
         if (!enabled) {
             const status = await this.getStatus();
@@ -21,7 +21,7 @@ export class Wach extends Application {
     }
 
     @Lane('disable sleep prevention!💤')
-    async disable(@context() context: LaneContext) {
+    async disable(@context() context: Context) {
         const enabled = await this.isEnabled();
         if (enabled) {
             const status = await this.parseJSON(context.directory + '/config.json');

@@ -2,19 +2,19 @@
     "name": "@garygrossgarten/wach",
     "version": "1.2.0",
     "description": "simple cli tool to prevent your mac from going to sleep when closing the lid. 👀",
-    "main": "dist/generated/index.js",
+    "main": "dist/index.js",
     "repository": {
         "url": "https://github.com/garygrossgarten/wach",
         "type": "git"
     },
     "scripts": {
         "build": "node_modules/.bin/tsc -p .",
-        "start": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/generated/index.ts",
+        "start": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
         "refresh": "rm -rf ./node_modules ./package-lock.json && npm install",
         "test": "npm i -g && wach"
     },
     "bin": {
-        "wach": "dist/generated/index.js"
+        "wach": "dist/index.js"
     },
     "preferGlobal": false,
     "keywords": [
@@ -34,12 +34,7 @@
         "typescript-ioc": "^1.2.4"
     },
     "dependencies": {
-        "@fivethree/billy-core": "0.8.0",
-        "@fivethree/billy-plugin-core": "0.8.0"
-    },
-    "billy": {
-        "plugins": [
-            "@fivethree/billy-plugin-core"
-        ]
+        "@fivethree/billy-core": "0.9.2",
+        "@fivethree/billy-plugin-core": "0.9.2"
     }
 }
