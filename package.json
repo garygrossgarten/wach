@@ -1,6 +1,6 @@
 {
     "name": "@garygrossgarten/wach",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "description": "simple cli tool to prevent your mac from going to sleep when closing the lid. 👀",
     "main": "dist/index.js",
     "repository": {
